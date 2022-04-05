@@ -21,20 +21,27 @@ function setup() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-
-function draw() {}
-
+let aCounter;
+let effects = [];
+function draw() {
+  background(255);
+  for (let i = effects.length - 1; i >= 0; i--) {
+    effects[i].play();
+    if (!effects[i].state) {
+      effects.splice(i, 1);
+    }
+  }
+}
 socket.on("keyPressed", (data) => {
   switch (data) {
     case 65:
-      createRedCircle();
+      effects.push(new redCircle());
       sounds[0].play();
       break;
     case 66:
-      createRedSquare();
+      effects.push(new fourCircle());
   }
 });
-
 function keyPressed() {
   if (clientRole == "player") {
     socket.emit("keyPressed", keyCode);
