@@ -1,7 +1,7 @@
 let express = require("express");
 let http = require("http");
 let io = require("socket.io");
-
+const port = process.env.PORT || 8800;
 let app = express();
 let server = http.createServer(app); // wrap the express app with http
 io = new io.Server(server); // use socket.io on the http app
@@ -45,7 +45,7 @@ io.sockets.on("connection", (socket) => {
   });
 });
 // server listening on port
-server.listen(8800, () => {
+server.listen(port, () => {
   console.log("server is up and running");
 });
 
