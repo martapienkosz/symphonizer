@@ -8,8 +8,8 @@ class redCircle {
     stroke(0, 0, 0, this.opacity);
     circle(100, 100, this.r);
     this.r += 1;
-    this.opacity -= 1;
-    if (this.opacity > 0) {
+    this.opacity -= 2;
+    if (this.opacity <= 0) {
       this.state = false;
     }
   }
