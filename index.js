@@ -1,4 +1,5 @@
 let express = require("express");
+const res = require("express/lib/response");
 let http = require("http");
 let io = require("socket.io");
 const port = process.env.PORT || 8800;
@@ -10,7 +11,13 @@ app.use("/", express.static("public"));
 app.use("/:roomID", express.static("public/artboard"));
 
 const maxPlayers = 2;
-roomTracker = {};
+roomTracker = {
+  2: {
+    number: 0,
+    visuals: "base",
+    audio: "base",
+  },
+};
 // sockets --> check for socket connection
 io.sockets.on("connection", (socket) => {
   console.log("We have a new client", socket.id);
@@ -18,19 +25,19 @@ io.sockets.on("connection", (socket) => {
   let roomNumber;
 
   socket.on("room", (roomId) => {
-    roomNumber = roomId;
-    socket.join(roomId);
+    console.log(roomTracker[roomId]);
     if (roomTracker[roomId]) {
+      roomNumber = roomId;
+      socket.join(roomId);
       roomTracker[roomId].number += 1;
+      io.to(socket.id).emit("roomInfo", roomTracker[roomId]);
       if (roomTracker[roomId].number <= maxPlayers) {
         io.to(socket.id).emit("role", "player");
       } else {
         io.to(socket.id).emit("role", "spectator");
       }
     } else {
-      roomTracker[roomId] = {};
-      roomTracker[roomId].number = 1;
-      io.to(socket.id).emit("role", "player");
+      io.to(socket.id).emit("invalidRoom");
     }
 
     console.log(roomTracker);
@@ -40,7 +47,9 @@ io.sockets.on("connection", (socket) => {
   });
   // drop a message on the server when socket disconnects
   socket.on("disconnect", () => {
-    roomTracker[roomNumber].number -= 1;
+    if (roomTracker[roomNumber]) {
+      roomTracker[roomNumber].number -= 1;
+    }
     console.log("socket has been disconnected", socket.id);
   });
 });
