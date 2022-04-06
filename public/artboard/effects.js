@@ -1,13 +1,50 @@
-class redCircle {
+let colors = [
+  {
+    r: 0,
+    g: 0,
+    b: 255,
+  },
+  {
+    r: 0,
+    g: 255,
+    b: 0,
+  },
+  {
+    r: 255,
+    g: 0,
+    b: 0,
+  },
+  {
+    r: 255,
+    g: 0,
+    b: 255,
+  },
+  {
+    r: 255,
+    g: 255,
+    b: 0,
+  },
+  {
+    r: 0,
+    g: 255,
+    b: 255,
+  },
+];
+class expandingCirle {
   constructor() {
-    this.r = 0;
+    this.r = random(50, 100);
     this.state = true;
     this.opacity = 255;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
+    this.x = random(50, width - 50);
+    this.y = random(50, height - 50);
+    this.weight = random(3, 6);
   }
   play() {
-    stroke(0, 0, 0, this.opacity);
+    strokeWeight(this.weight);
+    stroke(this.color.r, this.color.g, this.color.b, this.opacity);
     noFill();
-    circle(100, 100, this.r);
+    circle(this.x, this.y, this.r);
     this.r += 1;
     this.opacity -= 2;
     if (this.opacity <= 0) {
@@ -111,23 +148,7 @@ class smoothTransition {
     }
   }
 }
-let colors = [
-  {
-    r: 0,
-    g: 0,
-    b: 255,
-  },
-  {
-    r: 0,
-    g: 255,
-    b: 0,
-  },
-  {
-    r: 255,
-    g: 0,
-    b: 0,
-  },
-];
+
 class expandingPolygon {
   constructor(n) {
     this.n = n;
@@ -136,9 +157,10 @@ class expandingPolygon {
     this.y = random(50, height - 50);
     this.opacity = 255;
     this.color = colors[Math.floor(Math.random() * colors.length)];
+    this.weight = random(3, 6);
   }
   play() {
-    strokeWeight(4);
+    strokeWeight(this.weight);
     stroke(this.color.r, this.color.g, this.color.b, this.opacity);
     noFill();
     this.regularPolygon(this.x, this.y, this.n, this.a);

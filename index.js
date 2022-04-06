@@ -11,8 +11,9 @@ app.use("/", express.static("public"));
 app.use("/:roomID", express.static("public/artboard"));
 
 const maxPlayers = 2;
-roomTracker = {
-  2: {
+let roomCount = 1;
+let roomTracker = {
+  0: {
     number: 0,
     visuals: "base",
     audio: "base",
@@ -44,6 +45,14 @@ io.sockets.on("connection", (socket) => {
   });
   socket.on("keyPressed", (keyCode) => {
     io.to(roomNumber).emit("keyPressed", keyCode);
+  });
+  socket.on("createRoom", (data) => {
+    roomTracker[roomCount] = {};
+    roomTracker[roomCount].visuals = data.visuals;
+    roomTracker[roomCount].audio = data.audio;
+    roomTracker[roomCount].number = 0;
+    io.to(socket.id).emit("redirect", roomCount);
+    roomCount++;
   });
   // drop a message on the server when socket disconnects
   socket.on("disconnect", () => {

@@ -24,7 +24,6 @@ socket.on("role", (role) => {
 sounds = [];
 
 function preload() {
-  print(audio, visuals);
   for (let i = 0; i < 4; i++) {
     sounds[i] = loadSound(`assets/sound/normal/${i}.wav`);
   }
@@ -38,7 +37,7 @@ function windowResized() {
 
 let effects = [];
 function draw() {
-  background(255);
+  background(255, 255, 250);
   for (let i = effects.length - 1; i >= 0; i--) {
     effects[i].play();
     // if (!effects[i].state) {
@@ -47,39 +46,61 @@ function draw() {
   }
 }
 socket.on("keyPressed", (data) => {
-  switch (data) {
-    case 65:
-      effects.push(new redCircle());
-      sounds[0].play();
-      break;
-    case 66:
-      effects.push(new fourCircle());
-      sounds[0].play();
-      break;
-    case 67:
-      effects.push(new expandingPolygon(3));
-      sounds[1].play();
-      break;
-    case 68:
-      effects.push(new expandingPolygon(4));
-      sounds[2].play();
-      break;
-    case 69:
-      effects.push(new expandingPolygon(5));
-      sounds[3].play();
-      break;
-    case 70:
-      effects.push(new fourPararellLines());
-      sounds[0].play();
-      break;
-    case 71:
-      effects.push(new dynamicBackgroundChange());
-      sounds[0].play();
-      break;
-    case 72:
-      effects.push(new smoothTransition());
-      sounds[0].play();
-      break;
+  if (visuals == "base") {
+    switch (data) {
+      case 65:
+        effects.push(new expandingCirle());
+        break;
+      case 66:
+        effects.push(new fourCircle());
+        break;
+      case 67:
+        effects.push(new expandingPolygon(3));
+        break;
+      case 68:
+        effects.push(new expandingPolygon(4));
+        break;
+      case 69:
+        effects.push(new expandingPolygon(5));
+        break;
+      case 70:
+        effects.push(new fourPararellLines());
+        break;
+      case 71:
+        effects.push(new dynamicBackgroundChange());
+        break;
+      case 72:
+        effects.push(new smoothTransition());
+        break;
+    }
+    if (audio == "base") {
+      switch (data) {
+        case 65:
+          sounds[0].play();
+          break;
+        case 66:
+          sounds[0].play();
+          break;
+        case 67:
+          sounds[1].play();
+          break;
+        case 68:
+          sounds[2].play();
+          break;
+        case 69:
+          sounds[3].play();
+          break;
+        case 70:
+          effects.push(new fourPararellLines());
+          break;
+        case 71:
+          effects.push(new dynamicBackgroundChange());
+          break;
+        case 72:
+          effects.push(new smoothTransition());
+          break;
+      }
+    }
   }
 });
 function keyPressed() {
