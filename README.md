@@ -6,7 +6,7 @@ Building on Marta’s socket.io app, for out project 2 we want to create a digit
 ### Process
 We have agreed on the general feel of our application, designed a prototype of it in figma and sketched a general flow between the `client` and `server`. Nextly we have devided work between the two of us and decided on convenient times to check the progrerss.
 
-![img](https://github.com/martapienkosz/connectionslab/edit/main/March21/dcmt/one.png)
+![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/ux.png)
 
 ### Plan
 1. Marta: make a general sockets setup (done);
