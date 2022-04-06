@@ -7,8 +7,9 @@ Building on Marta’s socket.io app, for out project 2 we want to create a digit
 We have agreed on the general feel of our application, designed a prototype of it in figma and sketched a general flow between the `client` and `server`. Nextly we have devided work between the two of us and decided on convenient times to check the progrerss.
 
 ### Plan
-1. Marta: make a general sockets setup;
-3. Aakarsh: Figure out logic behind the rooms (join/create room, limit no of users, add spectators);
+1. Marta: make a general sockets setup (done);
+3. Aakarsh: Figure out logic behind the rooms (join/create room, limit no of users, add spectators) (done);
 4. Together: Create animations in P5.js on keyPressed (at least 8 by Thr, 7th)
 5. Aakarsh: Create a sound library (by Tue, 12th)
-6. Marta: write up documentation
+6. Together: Polish UX and ensure animations work smoothly (by Tue, 12th)
+7. Marta: write up documentation (by Tue, 12th)
