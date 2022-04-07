@@ -1,38 +1,48 @@
 let colors = [
   {
-    r: 0,
-    g: 0,
-    b: 255,
+    r: 106,
+    g: 4,
+    b: 15,
   },
   {
-    r: 0,
-    g: 255,
+    r: 157,
+    g: 2,
+    b: 8,
+  },
+  {
+    r: 208,
+    g: 0,
     b: 0,
   },
   {
-    r: 255,
-    g: 0,
-    b: 0,
+    r: 220,
+    g: 47,
+    b: 2,
+  },
+  {
+    r: 232,
+    g: 93,
+    b: 4,
+  },
+  {
+    r: 244,
+    g: 140,
+    b: 6,
+  },
+  {
+    r: 250,
+    g: 163,
+    b: 7,
   },
   {
     r: 255,
-    g: 0,
-    b: 255,
-  },
-  {
-    r: 255,
-    g: 255,
-    b: 0,
-  },
-  {
-    r: 0,
-    g: 255,
-    b: 255,
+    g: 186,
+    b: 8,
   },
 ];
 class expandingCirle {
   constructor() {
-    this.r = random(50, 100);
+    this.r = random(100, 200);
     this.state = true;
     this.opacity = 255;
     this.color = colors[Math.floor(Math.random() * colors.length)];
@@ -45,7 +55,7 @@ class expandingCirle {
     stroke(this.color.r, this.color.g, this.color.b, this.opacity);
     noFill();
     circle(this.x, this.y, this.r);
-    this.r += 1;
+    this.r += 3;
     this.opacity -= 2;
     if (this.opacity <= 0) {
       this.state = false;
@@ -55,32 +65,28 @@ class expandingCirle {
 
 class fourCircle {
   constructor() {
-    this.d = 50;
-    this.x = 50;
-    this.y = 200;
+    this.d = random(100, 200);
+    this.x = random(50, width - 50);
+    this.y = random(50, height - 50);
     this.cnt = 0;
-    this.n = 4;
-    this.t = 250;
-    this.start = 0;
-    this.current = 0;
-    this.time = 0;
-    this.state = true;
+    this.n = random(2, 6);
+    this.opacity = 250;
+    this.time = 1;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
   }
   play() {
     if (this.cnt < this.n) {
-      fill(250, 250, 250, this.t);
+      fill(this.color.r, this.color.g, this.color.b, this.opacity);
+      noStroke();
       circle(this.x, this.y, this.d);
-      this.x += 2 * this.d;
-      this.wait(100);
-      this.cnt++;
-      this.t = this.t - this.t / 2;
+      if (this.time % 10 == 0) {
+        this.x += 2 * this.d;
+        // this.wait(1000);
+        this.cnt++;
+        this.opacity = this.opacity / 2;
+      }
+      this.time++;
     }
-  }
-  wait(time) {
-    this.start = millis();
-    do {
-      this.current = millis();
-    } while (this.current < this.start + this.time);
   }
 }
 
@@ -100,8 +106,8 @@ class fourPararellLines {
 
   play() {
     if (this.w < this.w_max) {
-      for (this.c = 0; this.c <= this.n; this.c++) {
-        rect(this.posx, this.posy + (this.h + this.s) * this.c, this.w, this.h);
+      for (let c = 0; c <= this.n; c++) {
+        rect(this.posx, this.posy + (this.h + this.s) * c, this.w, this.h);
         this.wdif = this.w_max - this.w;
         this.w = this.w + this.wdif * this.easing;
         this.i++;
@@ -164,7 +170,7 @@ class expandingPolygon {
     stroke(this.color.r, this.color.g, this.color.b, this.opacity);
     noFill();
     this.regularPolygon(this.x, this.y, this.n, this.a);
-    this.a++;
+    this.a += 2;
     this.opacity -= 2;
   }
   regularPolygon(x, y, n, radius) {

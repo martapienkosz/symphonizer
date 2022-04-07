@@ -37,7 +37,7 @@ function windowResized() {
 
 let effects = [];
 function draw() {
-  background(255, 255, 250);
+  background(3, 7, 30);
   for (let i = effects.length - 1; i >= 0; i--) {
     effects[i].play();
     // if (!effects[i].state) {
