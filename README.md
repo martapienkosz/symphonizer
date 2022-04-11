@@ -10,10 +10,10 @@ We have agreed on the general feel of our application, designed a prototype of i
 
 ![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/sketch.png)
 
-### Plan
-1. Marta: make a general sockets setup (done);
-3. Aakarsh: Figure out logic behind the rooms (join/create room, limit no of users, add spectators) (done);
-4. Together: Create animations in P5.js on keyPressed (at least 8 by Thr, 7th)
-5. Aakarsh: Create a sound library (by Tue, 12th)
-6. Together: Polish UX and ensure animations work smoothly (by Tue, 12th)
-7. Marta: write up documentation (by Tue, 12th)
+We have started off with the general set up for sockets. Later Aakarsh has been working on the logic behind the rooms (join/create room, limit no of users, add spectators --> elaborate @Aakarsh).
+
+At the same time Marta has created classes containing  12 distinct animations... @Marta
+
+Finally we have added three distinc sound libraries... @Aakarsh
+
+Lastly, we worked on the frontend @Marta
