@@ -11,6 +11,9 @@ We have agreed on the general feel of our application, designed a prototype of i
 
 We have started off with the general set up for sockets. Later Aakarsh has been working on the logic behind the rooms (join/create room, limit no of users, add spectators --> elaborate @Aakarsh).
 
+____________________________* LOGIC BEHIND ROOMS (JOIN/CREATE)
+____________________________* LIMITING NO OF USERS / SPECTATORS
+
 
 ### Animations
 
@@ -57,6 +60,8 @@ socket.on("keyPressed", (data) => {
 
 Aakarsh has composed 3 libraries of sounds, each of which contains 6 notes. We have settled on the futuristic, upbeat and orchestral modes and preloaded the soundtracks so there were no unnecessary delay.
 
+____________________________* INCLUDE SCREENSHOT OF THE SOFTWARE AND MENTION THE NAME OF IT + HOW DID U COMPOSE THINGS
+
 
 ### Frontend
 
@@ -79,9 +84,18 @@ socket.on("changeVisuals", (dataVisuals) => {
 
 
 ### Learnings
-Marta'a learnings
+Marta's learnings
 - Getting familar with p5.js, animations and concepts of classes
 - Designing homepage with radio buttons, input box, unever number of text & content
 - Communication and collboration (github & glitch / sharing code / meeting up / settling on idea)
 
+Aakarsh's learnings
+- Getting familar with p5.js, animations and concepts of classes
+- Designing homepage with radio buttons, input box, unever number of text & content
+- Communication and collboration (github & glitch / sharing code / meeting up / settling on idea)
+
+____________________________* ADD YOUR LEARNINGS
+
+
+And here is a snapshot form the showcase!
 ![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/showcase.png)
