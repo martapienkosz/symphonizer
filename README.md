@@ -33,6 +33,8 @@ class animationName {
 }
 ```
 
+![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/aqua2.png)
+
 Each class was called on the specific `keyPressed` function. We split the 12 animations into 3 visual paths, giving each mode its own distinct feel.
 
 ```
@@ -51,7 +53,12 @@ Aakarsh has composed 3 libraries of sounds, each of which contains 6 notes. We h
 
 Lastly, Marta was working on the frontend. We wanted the `menu` section to be super intuitive, allowing users to quickly get to the` playground` page. We divided the window into `create a room` and `join the room` sections. During testing, we asked a few users if they would prefer to name their room or just get a random code. Users had no preference, and after looking at games like Scribble and Kahoot we have settled on choosing an authentic, randomly generated room ID.
 
+![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/front2.png)
+
 We also wanted to implement subtle `radio buttons` on the `playground` page that would allow users to switch modes while in the room. I think we did a great job with the design giving users extra options while not distracting them from the main animations.
+
+![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/front3.png)
+
 
 ```
 socket.on("changeVisuals", (dataVisuals) => {
@@ -61,3 +68,6 @@ socket.on("changeVisuals", (dataVisuals) => {
 
 ```
 
+
+### Learnings
+![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/showcase.png)
