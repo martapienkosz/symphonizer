@@ -97,5 +97,5 @@ Aakarsh's learnings
 ____________________________* ADD YOUR LEARNINGS
 
 
-And here is a snapshot form the showcase!
+And here is a snapshot from the showcase!
 ![img](https://github.com/martapienkosz/symphonizer/blob/main/dcmd/showcase.png)
