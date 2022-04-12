@@ -24,17 +24,10 @@ class animationName {
   constructor(colorPallete) {
     if (colorPallete == "fire") {
       this.color = fireColor[Math.floor(Math.random() * fireColor.length)];
-    } else if (colorPallete == "earth") {
-      this.color = earthColor[Math.floor(Math.random() * earthColor.length)];
-    } else if (colorPallete == "water") {
-      this.color = waterColor[Math.floor(Math.random() * waterColor.length)];
-    }
+    } else if (colorPallete == "earth") {...}
     this.sth = ...
   }
-
-  play() {
-    ...
-  }
+  play() {...}
 }
 ```
 
@@ -79,7 +72,6 @@ socket.on("changeVisuals", (dataVisuals) => {
   document.querySelector(`input[name="visuals"][value=${dataVisuals}]`).checked = true;
   visuals = dataVisuals;
 });
-
 ```
 
 
@@ -90,9 +82,9 @@ Marta's learnings
 - Communication and collboration (github & glitch / sharing code / meeting up / settling on idea)
 
 Aakarsh's learnings
-- Getting familar with p5.js, animations and concepts of classes
-- Designing homepage with radio buttons, input box, unever number of text & content
-- Communication and collboration (github & glitch / sharing code / meeting up / settling on idea)
+- one
+- two
+- three
 
 ____________________________* ADD YOUR LEARNINGS
 
